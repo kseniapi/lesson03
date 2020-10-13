@@ -10,8 +10,6 @@ const deposit = confirm('Есть ли у вас депозит в банке?')
 
 console.log(addExpenses.toLowerCase().split(', '));
 
-let budgetDay = money / 30;
-
 const expenses1 = prompt('Введите обязательную статью расходов?');
 const expenses2 = prompt('Введите обязательную статью расходов?');
 const amount1 = Number(prompt('Во сколько это обойдется?'));
@@ -31,10 +29,10 @@ const accumulatedMonth = getAccumuulatedMonth();
 function getTargetMonth() {
   return mission/ accumulatedMonth;
 }
-console.log(getTargetMonth());
+console.log(Math.ceil(getTargetMonth()));
 
-budgetDay = accumulatedMonth / 30; 
-console.log(budgetDay);
+const budgetDay = accumulatedMonth / 30; 
+console.log(Math.floor(budgetDay));
 
 const showTypeOf = function(data) {
   console.log(typeof(data));
