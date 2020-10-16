@@ -43,11 +43,9 @@ const getExpensesMonth = function () {
       sum = prompt('Во сколько это обойдется?');
     } while (!isNumber(sum));
     result += Number(sum);
-  console.log(expenses);
-  console.log(result);
+    console.log(expenses);
+  //console.log(result);
   }
-  // console.log(result);
-
   return result;
 };
 
@@ -62,20 +60,21 @@ function getAccumuulatedMonth() {
 const accumulatedMonth = getAccumuulatedMonth();
 
 function getTargetMonth() {
+  console.log(Math.ceil(mission/ accumulatedMonth));
   if ( mission/ accumulatedMonth < 0 ) {
     return ('Цель не будет достигнута');
   } else {  
     return ('Цель будет достигнута');
 }
 }
+
 console.log(getTargetMonth());
-//console.log(Math.ceil(getTargetMonth()));
 
 const budgetDay = accumulatedMonth / 30; 
-console.log(Math.floor(budgetDay));
+//console.log(Math.floor(budgetDay));
 
 const showTypeOf = function(data) {
-  console.log(typeof(data));
+  //console.log(typeof(data));
 };
 showTypeOf(money);
 showTypeOf(income);
@@ -93,4 +92,4 @@ return('К сожалению, у вас уровень дохода ниже с
 }
 };
 
-console.log(getStatusIncome());
+//console.log(getStatusIncome());
