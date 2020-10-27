@@ -27,21 +27,43 @@ const targetAmount = document.querySelector('.target-amount');
 const periodSelect = document.querySelector('.period-select');
 const incomeItem = document.querySelectorAll('.income-items');
 const periodAmount = document.querySelector('.period-amount');
-start.disabled = true;
+// start.disabled = true;
 
 function updateValue(e){
   let el = document.querySelector('.period-amount');
   el.innerText = e.target.value;
 }
 periodSelect.addEventListener('input',updateValue);
-const btnCheck = (e)  =>  {
-  if(e.target.value === ""){
-    start.disabled = true;
+// const btnCheck = (e)  =>  {
+//   if(e.target.value === "") {
+//     start.disabled = true;
+//   } else {
+//     start.disabled = false;
+//   }
+// };
+
+const btnStyleOver = () => {
+
+  if (salaryAmount.value === "") {
+    start.style.cursor = 'not-allowed';
+    start.style.opacity = '0';
+
   } else {
-    start.disabled = false;
+    start.style.cursor = 'default';
   }
 };
-salaryAmount.addEventListener('input', btnCheck);
+
+const btnStyleOut = () => {
+
+  if (salaryAmount.value === "") {
+    start.style.opacity = '1';
+  }
+};
+
+
+start.addEventListener('mouseover', btnStyleOver);
+start.addEventListener('mouseout', btnStyleOut);
+// salaryAmount.addEventListener('input', btnCheck);
 
 const isNumber = function(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
