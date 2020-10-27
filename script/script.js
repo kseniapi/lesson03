@@ -142,8 +142,9 @@ getIncome: function(){
     appData.income[itemIncome] = cashIncome;
   }
   });
-
-
+  for (let key in appData.income){
+    appData.incomeMonth += +appData.income[key];
+  }
 },
 getAddExpenses: function(){
 const addExpenses = additionalExpensesItem.value.split(',');
@@ -165,14 +166,15 @@ additionalIncomeItem.forEach(function(item){
   getExpensesMonth: function () {
   let sum = 0;
   for (let key in appData.expenses) {
+    appData.expensesMonth += +appData.expenses;
     sum += +appData.expenses[key];
-    //sum = appData.expensesMonth;
+    sum = appData.expensesMonth;
     }
-    appData.expensesMonth = sum;
+    //appData.expensesMonth = sum;
     return sum;
   }, 
   getBudget: function() {
-  appData.budgetMonth = appData.budget + appData.incomeMonth - appData.getExpensesMonth();
+  appData.budgetMonth = appData.budget + appData.incomeMonth- appData.getExpensesMonth();
   appData.budgetDay = Math.floor(appData.budgetMonth / 30);
   
   return appData.budgetMonth;
